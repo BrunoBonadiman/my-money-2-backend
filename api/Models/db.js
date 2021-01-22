@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, (err) => {
+mongoose.connect(process.env.MONGO_URL, (err) => {
     if (!err) {
         console.log('Conexão realizada com sucesso.');
     } else {

@@ -1,4 +1,4 @@
-require('./Config/config');
+// require('./Config/config');
 require('./Models/db');
 require('./Config/passportConfig');
 
@@ -46,4 +46,4 @@ app.use((err, req, res, next) => {
     }
 });
 
-app.listen(process.env.PORT, () => console.log(`Servidor iniciado na porta : ${process.env.PORT}`));
+app.listen(process.env.PORT || 3001);
