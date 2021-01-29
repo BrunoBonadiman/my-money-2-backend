@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
-var Contas = mongoose.model('Contas', {
-    descricao: {
+var Integrantes = mongoose.model('Integrantes', {
+    integrante1: {
         type: String,
         required: true
     },
-    valorTotal: {
+    integrante2: {
         type: String,
         required: true
     },
-    vencimento: {
+    integrante3: {
         type: String,
         required: true
     },
-    status: {
+    integrante4: {
         type: String,
         required: true
     },
@@ -25,5 +25,5 @@ var Contas = mongoose.model('Contas', {
 });
 
 module.exports = {
-    Contas
+    Integrantes
 };

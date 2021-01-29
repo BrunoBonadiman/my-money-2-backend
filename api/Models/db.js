@@ -14,3 +14,4 @@ require('./contas-bruno-model');
 require('./contas-franciele-model');
 require('./contas-deco-model');
 require('./contas-penha-model');
+require('./integrantes-model');

@@ -28,13 +28,17 @@ module.exports.buscar = (req, res, next) => {
 };
 
 module.exports.cadastrar = (req, res, next) => {
+    const usuarioId = res.locals.auth_data._id;
+    req.body.user = usuarioId;
+
     var conta = new ContasBruno({
         descricao: req.body.descricao,
         detalhe: req.body.detalhe,
         valor: req.body.valor,
         vencimento: req.body.vencimento,
         parcela: req.body.parcela,
-        status: req.body.status
+        status: req.body.status,
+        user: req.body.user
     });
     conta.save((err, doc) => {
         if (!err) {

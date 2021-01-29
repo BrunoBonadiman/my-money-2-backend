@@ -20,7 +20,7 @@ var userSchema = new Schema({
     },
     urlImage: {
         type: String,
-        required: true
+        required: false
     },
     saltSecret: String
 

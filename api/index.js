@@ -1,4 +1,4 @@
-// require('./Config/config');
+//require('./Config/config');
 require('./Models/db');
 require('./Config/passportConfig');
 
@@ -14,6 +14,7 @@ const rtsContasBruno = require('./Routers/contas-bruno-router');
 const rtsContasFranciele = require('./Routers/contas-franciele-router');
 const rtsContasDeco = require('./Routers/contas-deco-router');
 const rtsContasPenha = require('./Routers/contas-penha-router');
+const rtsIntegrantes = require('./Routers/integrantes-router');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/contas/bruno', rtsContasBruno);
 app.use('/api/contas/franciele', rtsContasFranciele);
 app.use('/api/contas/deco', rtsContasDeco);
 app.use('/api/contas/penha', rtsContasPenha);
+app.use('/api/contas/integrantes', rtsIntegrantes);
 
 app.use('/files',express.static(path.resolve(__dirname, './tmp/uploads')));
 

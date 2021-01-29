@@ -1,15 +1,15 @@
 var ObjectId = require('mongoose').Types.ObjectId;
 
 var {
-    Contas
-} = require('../Models/contas-model');
+    Integrantes
+} = require('../Models/integrantes-model');
 
 module.exports.listar = (req, res, next) => {
-    Contas.find((err, docs) => {
+    Integrantes.find((err, docs) => {
         if (!err) {
             res.send(docs);
         } else {
-            console.log('Erro ao recuperar lista de contas :' + JSON.stringify(err, undefined, 2));
+            console.log('Erro ao recuperar lista de integrantes :' + JSON.stringify(err, undefined, 2));
         }
     });
 };
@@ -18,11 +18,11 @@ module.exports.buscar = (req, res, next) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Nenhum registro com o ID fornecido : ${req.params.id}`);
 
-    Contas.findById(req.params.id, (err, doc) => {
+    Integrantes.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.send(doc);
         } else {
-            console.log('Erro ao recuperar conta :' + JSON.stringify(err, undefined, 2));
+            console.log('Erro ao recuperar integrante :' + JSON.stringify(err, undefined, 2));
         }
     });
 };
@@ -31,18 +31,18 @@ module.exports.cadastrar = (req, res, next) => {
     const usuarioId = res.locals.auth_data._id;
     req.body.user = usuarioId;
 
-    var conta = new Contas({
-        descricao: req.body.descricao,
-        valorTotal: req.body.valorTotal,
-        vencimento: req.body.vencimento,
-        status: req.body.status,
+    var integrante = new Integrantes({
+        integrante1: req.body.integrante1,
+        integrante2: req.body.integrante2,
+        integrante3: req.body.integrante3,
+        integrante4: req.body.integrante4,
         user: req.body.user
     });
-    conta.save((err, doc) => {
+    integrante.save((err, doc) => {
         if (!err) {
             res.send(doc);
         } else {
-            console.log('Erro ao cadastrar conta :' + JSON.stringify(err, undefined, 2));
+            console.log('Erro ao cadastrar novo integrante:' + JSON.stringify(err, undefined, 2));
         }
     });
 };
@@ -51,21 +51,21 @@ module.exports.atualizar = (req, res, next) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Nenhum registro com o ID fornecido : ${req.params.id}`);
 
-    var conta = {
-        descricao: req.body.descricao,
-        valorTotal: req.body.valorTotal,
-        vencimento: req.body.vencimento,
-        status: req.body.status
+        var integrante = {
+            integrante1: req.body.integrante1,
+            integrante2: req.body.integrante2,
+            integrante3: req.body.integrante3,
+            integrante4: req.body.integrante4,
     };
-    Contas.findByIdAndUpdate(req.params.id, {
-        $set: conta
+    Integrantes.findByIdAndUpdate(req.params.id, {
+        $set: integrante
     }, {
         new: true
     }, (err, doc) => {
         if (!err) {
             res.send(doc);
         } else {
-            console.log('Erro ao atualizar conta :' + JSON.stringify(err, undefined, 2));
+            console.log('Erro ao atualizar integrante :' + JSON.stringify(err, undefined, 2));
         }
     });
 };
@@ -74,11 +74,11 @@ module.exports.deletar = (req, res, next) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Nenhum registro com o ID fornecido : ${req.params.id}`);
 
-    Contas.findByIdAndRemove(req.params.id, (err, doc) => {
+    Integrantes.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.send(doc);
         } else {
-            console.log('Erro ao deletar Conta :' + JSON.stringify(err, undefined, 2));
+            console.log('Erro ao deletar integrante :' + JSON.stringify(err, undefined, 2));
         }
     });
 };
