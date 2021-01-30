@@ -1,14 +1,8 @@
 {
     "development": {
         "PORT": 3001,
-        "MONGODB_URI": "mongodb://localhost:27017/financial-control",
+        "MONGO_URL": "mongodb://localhost:27017/financial-control",
         "JWT_SECRET": "SECRET#123",
         "JWT_EXP": "100m"
-    },
-    "production": {
-        "PORT": 80,
-        "MONGODB_URI": "mongodb://xxxxx/DB_Name",
-        "JWT_SECRET": "SECRET#123",
-        "JWT_EXP": "2m"
     }
 }
