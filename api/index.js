@@ -1,4 +1,4 @@
-require('./Config/config');
+//require('./Config/config');
 require('./Models/db');
 require('./Config/passportConfig');
 
