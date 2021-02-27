@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL, (err) => {
     if (!err) {
-        console.log('Conexão realizada com sucesso.');
+        console.log('Conexão estabelecida com sucesso.');
     } else {
-        console.log('Erro ao conectar com a Base de Dados : ' + JSON.stringify(err, undefined, 2));
+        console.log('Falha ao conectar com a Base de Dados : ' + JSON.stringify(err, undefined, 2));
     }
 });
 
@@ -15,3 +15,4 @@ require('./contas-franciele-model');
 require('./contas-deco-model');
 require('./contas-penha-model');
 require('./integrantes-model');
+require('./grafico-model');
